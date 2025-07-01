@@ -2,6 +2,7 @@
 #define _SCENE_MANAGER_H
 
 #include "scene.h"
+using namespace std;
 
 extern Scene* menu_scene;
 extern Scene* game_scene;
@@ -27,6 +28,7 @@ public:
 
     void switch_to(SceneType type)
     {
+
         current_scene->on_exit(); //退出当前场景
         switch (type)
         {
@@ -42,20 +44,20 @@ public:
         current_scene->on_enter();
     }
 
-    void on_update()
+    void on_update(int delta)
     {
-            current_scene->on_update();
-	}
+        current_scene->on_update(delta);
+    }
 
     void on_draw()
     {
-            current_scene->on_draw();
+        current_scene->on_draw();
     }
 
     void on_input(const ExMessage& msg)
     {
-            current_scene->on_input(msg);
-	}
+        current_scene->on_input(msg);
+    }
 
 private:
     Scene* current_scene = nullptr;
