@@ -5,6 +5,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{02839579-8C6A-4CBB-97C0-6D28A4D260CF}|Plant-All-Star-Battle\\Plant-All-Star-Battle.vcxproj|H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\Plant-All-Star-Battle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{02839579-8C6A-4CBB-97C0-6D28A4D260CF}|Plant-All-Star-Battle\\Plant-All-Star-Battle.vcxproj|solutionrelative:Plant-All-Star-Battle\\Plant-All-Star-Battle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02839579-8C6A-4CBB-97C0-6D28A4D260CF}|Plant-All-Star-Battle\\Plant-All-Star-Battle.vcxproj|H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\menu_scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{02839579-8C6A-4CBB-97C0-6D28A4D260CF}|Plant-All-Star-Battle\\Plant-All-Star-Battle.vcxproj|solutionrelative:Plant-All-Star-Battle\\menu_scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02839579-8C6A-4CBB-97C0-6D28A4D260CF}|Plant-All-Star-Battle\\Plant-All-Star-Battle.vcxproj|H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\scene_manager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{02839579-8C6A-4CBB-97C0-6D28A4D260CF}|Plant-All-Star-Battle\\Plant-All-Star-Battle.vcxproj|solutionrelative:Plant-All-Star-Battle\\scene_manager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02839579-8C6A-4CBB-97C0-6D28A4D260CF}|Plant-All-Star-Battle\\Plant-All-Star-Battle.vcxproj|H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\game_scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{02839579-8C6A-4CBB-97C0-6D28A4D260CF}|Plant-All-Star-Battle\\Plant-All-Star-Battle.vcxproj|solutionrelative:Plant-All-Star-Battle\\game_scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02839579-8C6A-4CBB-97C0-6D28A4D260CF}|Plant-All-Star-Battle\\Plant-All-Star-Battle.vcxproj|H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{02839579-8C6A-4CBB-97C0-6D28A4D260CF}|Plant-All-Star-Battle\\Plant-All-Star-Battle.vcxproj|solutionrelative:Plant-All-Star-Battle\\scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,11 +30,63 @@
       "DocumentGroups": [
         {
           "DockedHeight": 250,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "game_scene.h",
+              "DocumentMoniker": "H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\game_scene.h",
+              "RelativeDocumentMoniker": "Plant-All-Star-Battle\\game_scene.h",
+              "ToolTip": "H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\game_scene.h",
+              "RelativeToolTip": "Plant-All-Star-Battle\\game_scene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-07-01T08:45:12.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "scene.h",
+              "DocumentMoniker": "H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\scene.h",
+              "RelativeDocumentMoniker": "Plant-All-Star-Battle\\scene.h",
+              "ToolTip": "H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\scene.h",
+              "RelativeToolTip": "Plant-All-Star-Battle\\scene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAawA0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-07-01T08:44:06.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "menu_scene.h",
+              "DocumentMoniker": "H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\menu_scene.h",
+              "RelativeDocumentMoniker": "Plant-All-Star-Battle\\menu_scene.h",
+              "ToolTip": "H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\menu_scene.h",
+              "RelativeToolTip": "Plant-All-Star-Battle\\menu_scene.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-07-01T08:43:28.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "scene_manager.h",
+              "DocumentMoniker": "H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\scene_manager.h",
+              "RelativeDocumentMoniker": "Plant-All-Star-Battle\\scene_manager.h",
+              "ToolTip": "H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\scene_manager.h",
+              "RelativeToolTip": "Plant-All-Star-Battle\\scene_manager.h",
+              "ViewState": "AgIAABIAAAAAAAAAAAAqwCIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-07-01T08:43:18.974Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -28,7 +96,7 @@
               "RelativeDocumentMoniker": "Plant-All-Star-Battle\\Plant-All-Star-Battle.cpp",
               "ToolTip": "H:\\Projects\\Plant-All-Star-Battle\\Plant-All-Star-Battle\\Plant-All-Star-Battle.cpp",
               "RelativeToolTip": "Plant-All-Star-Battle\\Plant-All-Star-Battle.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-01T08:16:43.938Z",
               "EditorCaption": ""

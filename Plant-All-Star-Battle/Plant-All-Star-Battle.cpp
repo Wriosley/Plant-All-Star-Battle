@@ -1,20 +1,51 @@
-﻿// Plant-All-Star-Battle.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
+﻿#include<iostream>
+#include<easyx.h>
+#include<graphics.h>
+#include"scene.h"
+#include"menu_scene.h"
+#include"game_scene.h"
+#include"scene_manager.h"
 
-#include <iostream>
+
+Scene* menu_scene = nullptr;
+Scene* game_scene = nullptr;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    ExMessage msg;
+    const int FPS = 60;
+
+    initgraph(1280, 720, EW_SHOWCONSOLE);
+
+    BeginBatchDraw();
+
+    menu_scene = new MenuScene();
+    game_scene = new GameScene();
+
+    scene->on_enter();
+
+    while (true)
+    {
+        DWORD frame_start_time = GetTickCount();
+
+        while (peekmessage(&msg))
+        {
+            scene->on_input(msg);
+        }
+
+        scene->on_update();
+
+        cleardevice();
+        scene->on_draw();
+        FlushBatchDraw();
+
+        DWORD frame_end_time = GetTickCount();
+        DWORD frame_delte_time = frame_end_time - frame_start_time;
+        if (frame_delte_time < 1000 / FPS)
+            Sleep(1000 / FPS - frame_delte_time);
+    }
+
+    EndBatchDraw();
+
+    return 0;
 }
-
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
-
-// 入门使用技巧: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
