@@ -22,7 +22,7 @@ int main()
     menu_scene = new MenuScene();
     game_scene = new GameScene();
 
-    scene->on_enter();
+    scene_manager.set_current_scene(menu_scene);
 
     while (true)
     {

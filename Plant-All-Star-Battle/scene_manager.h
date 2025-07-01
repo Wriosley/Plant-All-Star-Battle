@@ -42,6 +42,21 @@ public:
         current_scene->on_enter();
     }
 
+    void on_update()
+    {
+            current_scene->on_update();
+	}
+
+    void on_draw()
+    {
+            current_scene->on_draw();
+    }
+
+    void on_input(const ExMessage& msg)
+    {
+            current_scene->on_input(msg);
+	}
+
 private:
     Scene* current_scene = nullptr;
 };
