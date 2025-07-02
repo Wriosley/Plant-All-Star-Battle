@@ -3,6 +3,8 @@
 
 #include<vector>
 #include<graphics.h>
+#include <iostream>
+using namespace std;
 
 class Atlas
 {
@@ -10,7 +12,9 @@ public:
 	Atlas() = default;
 	~Atlas() = default;
 	// 加载图集
-	void load_from_file(LPCTSTR path_template,int num) {
+
+
+	void load_from_file(LPCTSTR path_template, int num) {
 		// 实现加载图集的逻辑
 		img_list.clear();
 		img_list.resize(num);
@@ -22,6 +26,7 @@ public:
 			loadimage(&img_list[i], path_file);
 		}
 	}
+
 	// 获取图像
 	void clear()
 	{
@@ -42,6 +47,8 @@ public:
 
 	void add_image(const IMAGE& img)
 	{
+		
+		//putimage(0, 0, &img);
 		img_list.push_back(img);
 
 	}

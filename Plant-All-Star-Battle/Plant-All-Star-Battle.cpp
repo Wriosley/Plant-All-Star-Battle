@@ -9,7 +9,11 @@
 #include"scene_manager.h"
 #include "util.h"
 #include "atlas.h"
+#include <io.h>
+#include <fcntl.h>
+#include "camera.h"
 
+Camera main_camera;
 
 IMAGE	imgMenuBackground;
 
@@ -90,6 +94,8 @@ Scene* game_scene = nullptr;
 Scene* selector_scene = nullptr;
 SceneManager scene_manager;
 
+
+
 //void flip_atlas(Atlas& src,Atlas& dst)
 //{
 //	dst.clear();
@@ -163,70 +169,74 @@ void load_game_resources()
 	//豌豆射手
 	atlasPeaShooterIdleRight.load_from_file(_T("resources/peashooter_idle_%d.png"), 9);
 	flip_atlas(atlasPeaShooterIdleRight, atlasPeaShooterIdleLeft);
-	//atlasPeaShooterRunRight.load_from_file(_T("resources/peashooter_run_%d.png"), 5);
-	//flip_atlas(atlasPeaShooterRunRight, atlasPeaShooterRunLeft);
-	//atlasPeaShooterAttackExRight.load_from_file(_T("resources/peashooter_attack_ex_%d.png"), 3);
-	//flip_atlas(atlasPeaShooterAttackExRight, atlasPeaShooterAttackExLeft);
-	//atlasPeaShooterDieRight.load_from_file(_T("resources/peashooter_die_%d.png"), 4);
-	//flip_atlas(atlasPeaShooterDieRight, atlasPeaShooterDieLeft);
+	atlasPeaShooterRunRight.load_from_file(_T("resources/peashooter_run_%d.png"), 5);
+	flip_atlas(atlasPeaShooterRunRight, atlasPeaShooterRunLeft);
+	atlasPeaShooterAttackExRight.load_from_file(_T("resources/peashooter_attack_ex_%d.png"), 3);
+	flip_atlas(atlasPeaShooterAttackExRight, atlasPeaShooterAttackExLeft);
+	atlasPeaShooterDieRight.load_from_file(_T("resources/peashooter_die_%d.png"), 4);
+	flip_atlas(atlasPeaShooterDieRight, atlasPeaShooterDieLeft);
 
-	////向日葵
-	//atlasSunFlowerIdleRight.load_from_file(_T("resources/sunflower_idle_%d.png"), 8);
-	//flip_atlas(atlasSunFlowerIdleRight, atlasSunFlowerIdleLeft);
-	//atlasSunFlowerRunRight.load_from_file(_T("resources/sunflower_run_%d.png"), 5);
-	//flip_atlas(atlasSunFlowerRunRight, atlasSunFlowerRunLeft);
-	//atlasSunFlowerAttackExRight.load_from_file(_T("resources/sunflower_attack_ex_%d.png"), 9);
-	//flip_atlas(atlasSunFlowerAttackExRight, atlasSunFlowerAttackExLeft);
-	//atlasSunFlowerDieRight.load_from_file(_T("resources/sunflower_die_%d.png"), 2);
-	//flip_atlas(atlasSunFlowerDieRight, atlasSunFlowerDieLeft);
+	//向日葵
+	atlasSunFlowerIdleRight.load_from_file(_T("resources/sunflower_idle_%d.png"), 8);
+	flip_atlas(atlasSunFlowerIdleRight, atlasSunFlowerIdleLeft);
+	atlasSunFlowerRunRight.load_from_file(_T("resources/sunflower_run_%d.png"), 5);
+	flip_atlas(atlasSunFlowerRunRight, atlasSunFlowerRunLeft);
+	atlasSunFlowerAttackExRight.load_from_file(_T("resources/sunflower_attack_ex_%d.png"), 9);
+	flip_atlas(atlasSunFlowerAttackExRight, atlasSunFlowerAttackExLeft);
+	atlasSunFlowerDieRight.load_from_file(_T("resources/sunflower_die_%d.png"), 2);
+	flip_atlas(atlasSunFlowerDieRight, atlasSunFlowerDieLeft);
 
-	//loadimage(&imgPea, _T("resources/pea.png"));
-	//atlasPeaBreak.load_from_file(_T("resources/pea_break_%d.png"), 3);
-	//atlasSun.load_from_file(_T("resources/sun_%d.png"), 5);
-	//atlasSunExplode.load_from_file(_T("resources/sun_explode_%d.png"), 5);
-	//atlasSunEx.load_from_file(_T("resources/sun_ex_%d.png"), 5);
-	//atlasSunExExplode.load_from_file(_T("resources/sun_ex_explode_%d.png"), 5);
-	//atlasSunText.load_from_file(_T("resources/sun_text_%d.png"), 6);
+	loadimage(&imgPea, _T("resources/pea.png"));
+	atlasPeaBreak.load_from_file(_T("resources/pea_break_%d.png"), 3);
+	atlasSun.load_from_file(_T("resources/sun_%d.png"), 5);
+	atlasSunExplode.load_from_file(_T("resources/sun_explode_%d.png"), 5);
+	atlasSunEx.load_from_file(_T("resources/sun_ex_%d.png"), 5);
+	atlasSunExExplode.load_from_file(_T("resources/sun_ex_explode_%d.png"), 5);
+	atlasSunText.load_from_file(_T("resources/sun_text_%d.png"), 6);
 
-	//atlasRunEffect.load_from_file(_T("resources/run_effect_%d.png"), 4);
-	//atlasJumpEffect.load_from_file(_T("resources/jump_effect_%d.png"), 5);
-	//atlasLandEffect.load_from_file(_T("resources/land_effect_%d.png"), 2);
+	atlasRunEffect.load_from_file(_T("resources/run_effect_%d.png"), 4);
+	atlasJumpEffect.load_from_file(_T("resources/jump_effect_%d.png"), 5);
+	atlasLandEffect.load_from_file(_T("resources/land_effect_%d.png"), 2);
 
-	//loadimage(&img1PWinner, _T("resources/1P_winner.png"));
-	//loadimage(&img2PWinner, _T("resources/2P_winner.png"));
-	//loadimage(&imgWinnerBar, _T("resources/winnner_bar.png"));
+	loadimage(&img1PWinner, _T("resources/1P_winner.png"));
+	loadimage(&img2PWinner, _T("resources/2P_winner.png"));
+	loadimage(&imgWinnerBar, _T("resources/winnner_bar.png"));
 
-	//loadimage(&imgPeaShooterAvatar, _T("resources/avatar_peashooter.png"));
-	//loadimage(&imgSunFlowerAvatar, _T("resources/avatar_sunflower.png"));
-//	//加载音乐
-//	mciSendString(_T("open resources/bgm_game.mp3 alias bgmGame"), nullptr, 0, nullptr);
-//	mciSendString(_T("open resources/bgm_menu.mp3 alias bgmMenu"), nullptr, 0, nullptr);
+	loadimage(&imgPeaShooterAvatar, _T("resources/avatar_peashooter.png"));
+	loadimage(&imgSunFlowerAvatar, _T("resources/avatar_sunflower.png"));
+	//加载音乐
+	mciSendString(_T("open resources/bgm_game.mp3 alias bgmGame"), nullptr, 0, nullptr);
+	mciSendString(_T("open resources/bgm_menu.mp3 alias bgmMenu"), nullptr, 0, nullptr);
 //
-//	mciSendString(_T("open resources/pea_break_1.mp3 alias peaBreak1"), nullptr, 0, nullptr);
-//	mciSendString(_T("open resources/pea_break_2.mp3 alias peaBreak2"), nullptr, 0, nullptr);
-//	mciSendString(_T("open resources/pea_break_3.mp3 alias peaBreak3"), nullptr, 0, nullptr);
-//	mciSendString(_T("open resources/pea_shoot_1.mp3 alias peaShoot1"), nullptr, 0, nullptr);
-//	mciSendString(_T("open resources/pea_shoot_2.mp3 alias peaShoot2"), nullptr, 0, nullptr);
-//	mciSendString(_T("open resources/pea_shoot_ex.mp3 alias peaShootEx"), nullptr, 0, nullptr);
-//
-//	mciSendString(_T("open resources/sun_explode.mp3 alias sunExplode"), nullptr, 0, nullptr);
-//	mciSendString(_T("open resources/sun_explode_ex.mp3 alias sunExplodeEx"), nullptr, 0, nullptr);
-//	mciSendString(_T("open resources/sun_text.mp3 alias sunText"), nullptr, 0, nullptr);
-//
-//	mciSendString(_T("open resources/ui_confirm.wav alias uiConfirm"), nullptr, 0, nullptr);
-//	mciSendString(_T("open resources/ui_switch.wav alias uiSwitch"), nullptr, 0, nullptr);
-//	mciSendString(_T("open resources/ui_win.wav alias uiWin"), nullptr, 0, nullptr);
+	mciSendString(_T("open resources/pea_break_1.mp3 alias peaBreak1"), nullptr, 0, nullptr);
+	mciSendString(_T("open resources/pea_break_2.mp3 alias peaBreak2"), nullptr, 0, nullptr);
+	mciSendString(_T("open resources/pea_break_3.mp3 alias peaBreak3"), nullptr, 0, nullptr);
+	mciSendString(_T("open resources/pea_shoot_1.mp3 alias peaShoot1"), nullptr, 0, nullptr);
+	mciSendString(_T("open resources/pea_shoot_2.mp3 alias peaShoot2"), nullptr, 0, nullptr);
+	mciSendString(_T("open resources/pea_shoot_ex.mp3 alias peaShootEx"), nullptr, 0, nullptr);
+
+	mciSendString(_T("open resources/sun_explode.mp3 alias sunExplode"), nullptr, 0, nullptr);
+	mciSendString(_T("open resources/sun_explode_ex.mp3 alias sunExplodeEx"), nullptr, 0, nullptr);
+	mciSendString(_T("open resources/sun_text.mp3 alias sunText"), nullptr, 0, nullptr);
+
+	mciSendString(_T("open resources/ui_confirm.wav alias uiConfirm"), nullptr, 0, nullptr);
+	mciSendString(_T("open resources/ui_switch.wav alias uiSwitch"), nullptr, 0, nullptr);
+	mciSendString(_T("open resources/ui_win.wav alias uiWin"), nullptr, 0, nullptr);
 }
+
+
+
 
 int main()
 {
+
     ExMessage msg;
     const int FPS = 60;
 
 	load_game_resources();
-	cout << "加载成功" << endl;
+	
 
-    /*initgraph(1280, 720, EW_SHOWCONSOLE);
+    initgraph(1280, 720, EW_SHOWCONSOLE);
 
     
     BeginBatchDraw();
@@ -236,11 +246,9 @@ int main()
 
     scene_manager.set_current_state(menu_scene);
 	
-	cout << "初始化成功" << endl;
 
     while (true)
     {
-
         DWORD frame_start_time = GetTickCount();
 
         while (peekmessage(&msg))
@@ -256,7 +264,7 @@ int main()
 		last_tick_time = current_tick_time;
 
         cleardevice();
-        scene_manager.on_draw();
+        scene_manager.on_draw(main_camera);
         FlushBatchDraw();
 
         DWORD frame_end_time = GetTickCount();
@@ -265,7 +273,7 @@ int main()
             Sleep(1000 / FPS - frame_delte_time);
     }
 
-    EndBatchDraw();*/
+    EndBatchDraw();
 
     return 0;
 }

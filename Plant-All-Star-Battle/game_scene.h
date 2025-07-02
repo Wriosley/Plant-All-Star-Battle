@@ -25,7 +25,7 @@ public:
         //std::cout << "主菜单正在运行" << std::endl;
     }
 
-    void on_draw()
+    void on_draw(const Camera& camera)
     {
         outtextxy(10, 10, _T("游戏内部绘图内容"));
     }

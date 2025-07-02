@@ -6,10 +6,13 @@
 #include <easyx.h>
 #include "Animation.h"
 #include"scene_manager.h"
+#include "camera.h"
+#include"timer.h"
 using namespace std;
 
 extern SceneManager scene_manager;
 extern Atlas atlasPeaShooterRunRight;
+extern IMAGE imgMenuBackground;
 
 class MenuScene :public Scene
 {
@@ -19,34 +22,24 @@ public:
 
     void on_enter()
     {
-        cout << "进入主菜单" << endl;
-        animation_peashooter_run_right.set_atlas(&atlasPeaShooterRunRight);
-        animation_peashooter_run_right.set_inerval(75);
-        animation_peashooter_run_right.set_loop(true);
+		mciSendString(_T("play bgmMenu repeat from 0"), nullptr, 0, nullptr); //播放菜单音乐
+    }
+
+    void on_draw(const Camera& camera)
+    {
+        putimage(0, 0, &imgMenuBackground); //渲染到窗口
     
     }
 
-    void on_update(int delta)
-    {
-        animation_peashooter_run_right.on_update(delta);
-
-    }
-
-    void on_draw()
-    {
-        animation_peashooter_run_right.on_draw(100, 100);
-    }
 
     void on_input(const ExMessage& msg) {
-        if (msg.message == WM_KEYDOWN) {
-            scene_manager.switch_to(SceneManager::SceneType::Game);
+        if (msg.message == WM_KEYUP)
+        {
+			scene_manager.switch_to(SceneManager::SceneType::Selector); //按下任意键切换到游戏场景
+			mciSendString(_T("play uiConfirm from 0"), nullptr, 0, nullptr); //停止菜单音乐
         }
     }
 
-    void on_exit()
-    {
-        std::cout << "主菜单退出" << std::endl;
-    }
 private:
     Animation animation_peashooter_run_right;
 };

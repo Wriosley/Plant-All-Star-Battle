@@ -5,6 +5,7 @@
 #include "util.h"
 #include<graphics.h>
 #include<functional>
+#include "camera.h"
 
 class Animation
 {
@@ -27,7 +28,7 @@ public:
 		is_loop = flag;
 	}
 
-	void set_inerval(int ms)
+	void set_interval(int ms)
 	{
 		interval = ms;
 	}
@@ -65,15 +66,17 @@ public:
 	}
 
 	//äÖÈ¾
-	void on_draw(int x, int y) const
+	void on_draw(const Camera& camera,int x, int y) const
 	{
-		putimage_alpha(x, y, atlas->get_image(idx_frame));
+		putimage_alpha(camera,x, y, atlas->get_image(idx_frame));
 	}
 
 	void set_callback(std::function<void()> callback)
 	{
 		this->callback = callback;
 	}
+
+	
 
 private:
 	Atlas* atlas = nullptr;

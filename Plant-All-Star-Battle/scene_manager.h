@@ -6,6 +6,7 @@ using namespace std;
 
 extern Scene* menu_scene;
 extern Scene* game_scene;
+extern Scene* selector_scene;
 
 class SceneManager
 {
@@ -13,7 +14,8 @@ public:
     enum class SceneType
     {
         Menu,
-        Game
+        Game,
+        Selector
     };
 
 public:
@@ -38,6 +40,8 @@ public:
         case SceneType::Game:
             current_scene = game_scene;
             break;
+        case SceneType::Selector:
+            current_scene = selector_scene;
         default:
             break;
         }
@@ -49,9 +53,10 @@ public:
         current_scene->on_update(delta);
     }
 
-    void on_draw()
+    void on_draw(const Camera& camera)
     {
-        current_scene->on_draw();
+        
+        current_scene->on_draw(camera);
     }
 
     void on_input(const ExMessage& msg)
